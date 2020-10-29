@@ -33,9 +33,10 @@ RUN useradd rtorrent -d /home/rtorrent -G wheel
 
 # flood
 RUN yum -y install gcc-c++ make
-RUN yum -y install mediainfo libmediainfo mediainfo-gui
-RUN curl -sL https://rpm.nodesource.com/setup_8.x | bash -
+#RUN yum -y install mediainfo libmediainfo mediainfo-gui
+RUN curl -sL https://rpm.nodesource.com/setup_14.x | bash -
 RUN yum install -y nodejs git
+RUN yum install -y python2 python3
 RUN git clone https://github.com/jfurrow/flood.git /opt/flood
 RUN cp /defaults/config/flood/config.js /opt/flood/config.js
 WORKDIR /opt/flood/
